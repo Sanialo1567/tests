@@ -1,5 +1,4 @@
-import org.junit.Test;
-import org.junit.Before;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -7,14 +6,20 @@ import org.junit.jupiter.params.provider.MethodSource;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
 class CalculatorTest {
     Calculator calculator;
 
-    @BeforeEach
+    @BeforeTest
     public void setUp() {
         calculator = new Calculator();
     }
 
+    @DataProvider(name = "SumTestData")
     public static Object[][] sumTestData() {
         return new Object[][]{
                 {1, 1, 2},
@@ -22,8 +27,7 @@ class CalculatorTest {
         };
     }
 
-    @ParameterizedTest
-    @MethodSource("sumTestData")
+    @Test(dataProvider ="SumTestData" )
     public void dataProviderTest(double firstoperand, double secondoperand, double expectedSum) {
         Assertions.assertEquals(expectedSum, calculator.sum(firstoperand, secondoperand));
     }
@@ -38,7 +42,7 @@ class CalculatorTest {
     void subtractionTest() {
         Calculator calculatorOne = new Calculator();
         Calculator calculatorSecond = new Calculator();
-        Assertions.assertEquals(calculatorSecond.subtraction(4.5, 2.5), calculatorOne.subtraction(8, 4));
+        Assertions.assertEquals(calculatorSecond.subtraction(4.5, 2.5), calculatorOne.subtraction(6, 4));
 
     }
 
