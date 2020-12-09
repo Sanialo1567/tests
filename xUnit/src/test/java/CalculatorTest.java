@@ -71,7 +71,7 @@ class CalculatorTest {
 
     @Test
     void getCos() {
-        Assertions.sassertEquals(calculator.getCos(Math.PI), 1, 0.1);
+        Assertions.assertEquals(calculator.getCos(Math.PI), 1, 0.1);
     }
 
 
