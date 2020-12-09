@@ -31,21 +31,21 @@ class CalculatorTest {
     @Test
     void sumTest() {
         double expectedValue = 7.4f;
-        assertEquals(expectedValue, calculator.sum(2.4, 5), 0.1);
+        Assert.assertEquals(expectedValue, calculator.sum(2.4, 5), 0.1);
     }
 
     @Test
     void subtractionTest() {
         Calculator calculatorOne = new Calculator();
         Calculator calculatorSecond = new Calculator();
-        assertEquals(calculatorSecond.subtraction(4.5, 2.5), calculatorOne.subtraction(8, 4));
+        Assert.assertEquals(calculatorSecond.subtraction(4.5, 2.5), calculatorOne.subtraction(8, 4));
 
     }
 
     @Test
     void multiplicationTest() {
         double expectedValue = 40;
-        assertEquals(calculator.multiplication(8, 5), expectedValue);
+        Assert.assertEquals(calculator.multiplication(8, 5), expectedValue);
     }
 
     @Test
@@ -56,17 +56,17 @@ class CalculatorTest {
 
     @Test
     public void divideByZero() {
-        assertThrows(ArithmeticException.class, () -> calculator.division(4, 0));
+        Assert.assertThrows(ArithmeticException.class, () -> calculator.division(4, 0));
     }
 
     @Test
     void getSin() {
-        assertEquals(calculator.getSin(Math.PI), 0, 0.1);
+        Assert.assertEquals(calculator.getSin(Math.PI), 0, 0.1);
     }
 
     @Test
     public void getNegativeSin() {
-        assertDoesNotThrow(() -> calculator.getSin(-4));
+        Assert.assertDoesNotThrow(() -> calculator.getSin(-4));
     }
 
     @Test
@@ -77,12 +77,12 @@ class CalculatorTest {
 
     @Test
     void getTan() {
-        assertEquals(calculator.getTan(0), 0, 0.1);
+        Assert.assertEquals(calculator.getTan(0), 0, 0.1);
     }
 
     @Test
     void checkTrigonometric() {
-        assertTrue(calculator.getCos(Math.PI) * calculator.getCos(Math.PI) + calculator.getSin(Math.PI) * calculator.getSin(Math.PI) == 1);
+        Assert.assertTrue(calculator.getCos(Math.PI) * calculator.getCos(Math.PI) + calculator.getSin(Math.PI) * calculator.getSin(Math.PI) == 1);
     }
 
 
