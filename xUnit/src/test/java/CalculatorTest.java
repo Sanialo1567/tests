@@ -15,16 +15,10 @@ class CalculatorTest {
         calculator = new Calculator();
     }
 
-    @Test
-    void sumTest() {
-        double expectedValue = 7.4f;
-        assertEquals(expectedValue, calculator.sum(2.4, 5), 0.1);
-    }
-public static Object[][] sumTestData() {
+    public static Object[][] sumTestData() {
         return new Object[][]{
-                {2, 2, 4},
-                {10, 1, 11},
-                {1000000, -1000000, 0}
+                {1, 1, 2},
+                {5, -5, 0},
         };
     }
 
@@ -32,6 +26,12 @@ public static Object[][] sumTestData() {
     @MethodSource("sumTestData")
     public void dataProviderTest(double firstoperand, double secondoperand, double expectedSum) {
         Assertions.assertEquals(expectedSum, calculator.sum(firstoperand, secondoperand));
+    }
+
+    @Test
+    void sumTest() {
+        double expectedValue = 7.4f;
+        assertEquals(expectedValue, calculator.sum(2.4, 5), 0.1);
     }
 
     @Test
